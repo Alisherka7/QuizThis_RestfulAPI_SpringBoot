@@ -26,7 +26,6 @@ public class UsersController {
         // 1.1 모든 Users 비밀번호들을 마스킹한다
         passwordMasking(usersEntityList);
 
-
         // 2 가져온 Users 묶음을 뷰로 전달
         model.addAttribute("usersList", usersEntityList);
 
