@@ -1,0 +1,63 @@
+{{>layout/header}}
+<div id="wrapper">
+{{>layout/sidebar}}
+<!-- DataTales Example -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>UserID</th>
+                            <th>Name</th>
+                            <th>Login</th>
+                            <th>Password</th>
+                            <th>Email</th>
+                            <th>수정</th>
+                            <th>제거</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {{#usersList}}
+                            <tr>
+                                <td>{{id_user}}</td>
+                                <td>{{username}}</td>
+                                <td>{{login}}</td>
+                                <td>{{password}}</td>
+                                <td>{{email}}</td>
+                                <td><a href="#" class="btn btn-success btn-circle">
+                                    <i class="fas fa-check"></i>
+                                </a></td>
+                                <td><a href="/admin/userslist/{{id_user}}/delete" class="btn btn-danger btn-circle">
+                                    <i class="fas fa-trash"></i>
+                                </a></td>
+                            </tr>
+                            {{/usersList}}
+                        </tbody>
+                        <tfoot>
+                        <!-- 계정 추가 버튼 -->
+                                <a href="/admin/newuser" class="btn btn-success btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                    <span class="text">사용자 계정 추가</span>
+                                </a>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- /.container-fluid -->
+{{>layout/footer}}

@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @AllArgsConstructor
@@ -13,9 +15,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 public class Users {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // DB가 id를 자동 생성 아노테이션
-    private int id_user;
+    private Integer id_user;
 
     @Column
     private String username;
@@ -26,8 +29,11 @@ public class Users {
     @Column
     private String password;
 
+    @Temporal(TemporalType.DATE)
     @Column
-    private String progress;
+    private java.util.Date date_time;
+    @Column
+    private String email;
 
     public void patch(Users users){
         if(users.username != null){
@@ -39,8 +45,8 @@ public class Users {
         if(users.password != null){
             this.password = users.password;
         }
-        if(users.progress != null){
-            this.progress = users.progress;
+        if(users.email != null){
+            this.email = users.email;
         }
     }
 
