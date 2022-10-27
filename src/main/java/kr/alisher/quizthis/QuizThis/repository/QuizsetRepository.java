@@ -13,8 +13,8 @@ public interface QuizsetRepository extends JpaRepository<Quizset, Integer> {
     // 특정 게시글의 모든 댓글 조회
     @Query(value = "select * " +
     "from quizset where " +
-    "iduser = :iduser ", nativeQuery = true)
-    List<Quizset> findByIdUser(Integer iduser);
+    "iduser = :curIduser ", nativeQuery = true)
+    List<Quizset> findByIdUser(Integer curIduser);
 
 
     // 특정 닉네임의 모든 댓글 조회

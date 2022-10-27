@@ -46,7 +46,7 @@
         var pgItems = pager.pagedItems[pager.currentPage];
         $("#myList").empty();
         for(var i = 0; i < pgItems.length; i++){
-            var option = $('<li class="list-group-item">');
+            var option = $('<li ="list-group-item">');
             for( var key in pgItems[i] ){
                 option.html(pgItems[i][key]);
             }

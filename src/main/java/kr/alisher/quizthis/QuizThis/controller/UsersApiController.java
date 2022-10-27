@@ -3,6 +3,7 @@ package kr.alisher.quizthis.QuizThis.controller;
 import kr.alisher.quizthis.QuizThis.dto.UsersForm;
 import kr.alisher.quizthis.QuizThis.entity.Users;
 import kr.alisher.quizthis.QuizThis.repository.UsersRepository;
+import kr.alisher.quizthis.QuizThis.service.SHA256;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +12,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.util.List;
 
 @RestController // RestAPI 용 컨트롤러! 데이터(JSON)를 반환
 @Slf4j
 public class UsersApiController {
+
+    private SHA256 sha256 = new SHA256();
 
     @Autowired // DI
     private UsersRepository usersRepository;
@@ -38,7 +42,11 @@ public class UsersApiController {
 
     //Post
     @PostMapping("/api/users")
-    public Users create(@RequestBody UsersForm dto){
+    public Users create(@RequestBody UsersForm dto) throws NoSuchAlgorithmException {
+        // HA256으로 암호화된 비밀번호
+        String cryptogram = sha256.encrypt(dto.getPassword());
+        dto.setSHA256Password(cryptogram);
+
         dto.setDateTimeNow(date_time);
         Users user = dto.toEntity();
         return usersRepository.save(user);

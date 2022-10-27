@@ -16,16 +16,17 @@
                             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                 </div>
 
+                {{#userDatas}}
                 <div class="col-xl-6 col-md-6 mb-2">
                     <a href="/admin/userslist">
                         <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-1">
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Alisher</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{userName}}</div>
                                     </div>
                                     <div class="col-auto">
-                                        <h4>12</h4>
+                                        <h4>{{quizSetCol}}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -33,38 +34,7 @@
                     </a>
                 </div>
 
-                <div class="col-xl-6 col-md-6 mb-2">
-                    <a href="/admin/userslist">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-1">
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Roma</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <h4>4411</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xl-6 col-md-6 mb-2">
-                    <a href="/admin/userslist">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-1">
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Sofiya</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <h4>431</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                {{/userDatas}}
             </div>
         </div>
     </div>
