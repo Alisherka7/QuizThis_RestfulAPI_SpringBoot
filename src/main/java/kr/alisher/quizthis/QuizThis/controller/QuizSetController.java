@@ -40,6 +40,8 @@ public class QuizSetController {
         List<UserQuizSets> userDatas = getUserNameAndQuizSet(users);
         model.addAttribute("userDatas", userDatas);
         return "admin/quizsets";
+
+
     }
 
     private List<UserQuizSets> getUserNameAndQuizSet(List<Users> users) {
