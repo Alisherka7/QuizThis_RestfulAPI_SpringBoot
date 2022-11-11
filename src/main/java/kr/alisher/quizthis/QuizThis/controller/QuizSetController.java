@@ -1,7 +1,9 @@
 package kr.alisher.quizthis.QuizThis.controller;
 
+import kr.alisher.quizthis.QuizThis.entity.Quiz;
 import kr.alisher.quizthis.QuizThis.entity.UserQuizSets;
 import kr.alisher.quizthis.QuizThis.entity.Users;
+import kr.alisher.quizthis.QuizThis.repository.QuizRepository;
 import kr.alisher.quizthis.QuizThis.repository.QuizsetRepository;
 import kr.alisher.quizthis.QuizThis.repository.UsersRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -23,11 +25,18 @@ public class QuizSetController {
     @Autowired
     UsersRepository usersRepository;
 
+    @Autowired
+    QuizRepository quizRepository;
+
     UserQuizSets userQuizSets;
 
     @GetMapping("/admin/quizsets")
     public String quizsets(Model model){
         List<Users> users = usersRepository.findAll();// 동현석, 김정우, 김지태....
+        List<Quiz> quiz = quizRepository.findByIdUser(1);
+        for(Quiz j : quiz){
+            System.out.println(j.getQuestion() + "--->" + j.getAnswer());
+        }
         List<UserQuizSets> userDatas = getUserNameAndQuizSet(users);
         model.addAttribute("userDatas", userDatas);
         return "admin/quizsets";
