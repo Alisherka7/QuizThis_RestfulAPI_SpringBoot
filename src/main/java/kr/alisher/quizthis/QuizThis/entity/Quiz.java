@@ -28,4 +28,13 @@ public class Quiz {
 
     @Column
     Integer idquizset;
+
+    public void patch(Quiz quiz){
+        if(quiz.question != null){
+            this.question = quiz.question;
+        }
+        if(quiz.answer != null){
+            this.answer = quiz.answer;
+        }
+    }
 }

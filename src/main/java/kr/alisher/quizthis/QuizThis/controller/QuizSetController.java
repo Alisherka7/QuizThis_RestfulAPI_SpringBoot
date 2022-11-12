@@ -1,6 +1,7 @@
 package kr.alisher.quizthis.QuizThis.controller;
 
 import kr.alisher.quizthis.QuizThis.entity.Quiz;
+import kr.alisher.quizthis.QuizThis.entity.Quizset;
 import kr.alisher.quizthis.QuizThis.entity.UserQuizSets;
 import kr.alisher.quizthis.QuizThis.entity.Users;
 import kr.alisher.quizthis.QuizThis.repository.QuizRepository;
@@ -11,9 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @Slf4j
@@ -28,21 +31,27 @@ public class QuizSetController {
     @Autowired
     QuizRepository quizRepository;
 
-    UserQuizSets userQuizSets;
 
     @GetMapping("/admin/quizsets")
     public String quizsets(Model model){
         List<Users> users = usersRepository.findAll();// 동현석, 김정우, 김지태....
-        List<Quiz> quiz = quizRepository.findByIdUser(1);
+        List<Quiz> quiz = quizRepository.findByIdSet(1);
         for(Quiz j : quiz){
             System.out.println(j.getQuestion() + "--->" + j.getAnswer());
         }
         List<UserQuizSets> userDatas = getUserNameAndQuizSet(users);
         model.addAttribute("userDatas", userDatas);
         return "admin/quizsets";
-
-
     }
+
+
+    @GetMapping("/admin/quizsets/{id}")
+    public String showListQuizSet(@PathVariable Integer id, Model model){
+        List<Quizset> quizSet = quizsetRepository.findByIdUser(id);
+        model.addAttribute("quizsetData", quizSet);
+        return "admin/quizSetsByUser";
+    }
+
 
     private List<UserQuizSets> getUserNameAndQuizSet(List<Users> users) {
         String username;

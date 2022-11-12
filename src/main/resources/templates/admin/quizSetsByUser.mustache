@@ -1,0 +1,44 @@
+{{>layout/header}}
+<div id="wrapper">
+    {{>layout/sidebar}}
+    <!-- DataTales Example -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+            {{>layout/topbar}}
+            <div class="container-fluid">
+
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Sets</h1>
+
+                </div>
+
+                {{#quizsetData}}
+                    <div class="col-xl-6 col-md-6 mb-2">
+                        <a href="/admin/quiz/{{iduser}}/{{idquizset}}">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-1">
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{title}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <h5>{{description}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                {{/quizsetData}}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- /.container-fluid -->
+{{>layout/footer}}

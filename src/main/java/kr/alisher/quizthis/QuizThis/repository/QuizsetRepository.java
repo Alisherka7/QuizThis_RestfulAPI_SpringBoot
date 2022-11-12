@@ -17,8 +17,6 @@ public interface QuizsetRepository extends JpaRepository<Quizset, Integer> {
     List<Quizset> findByIdUser(Integer curIduser);
 
 
-    // 특정 닉네임의 모든 댓글 조회
-    List<Quizset> findByQuizTitle(Integer idquizset);
 
     @Override
     ArrayList<Quizset> findAll();

@@ -32,4 +32,16 @@ public class Quizset {
     @Column
     private Integer iduser;
 
+    public void patch(Quizset quizset){
+        if(quizset.title != null){
+            this.title = quizset.title;
+        }
+        if(quizset.description != null){
+            this.description = quizset.description;
+        }
+        if(quizset.progress != null){
+            this.progress = quizset.progress;
+        }
+    }
+
 }

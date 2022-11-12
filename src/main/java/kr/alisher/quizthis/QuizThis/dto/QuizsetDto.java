@@ -16,13 +16,9 @@ public class QuizsetDto {
     private Integer progress;
     private Integer iduser;
 
-    public static QuizsetDto createQuizSetDto(Quizset q) {
-        return new QuizsetDto(
-                q.getIdquizset(),
-                q.getTitle(),
-                q.getDescription(),
-                q.getProgress(),
-                q.getIduser()
+    public Quizset toEntity() {
+        return new Quizset(
+                idquizset, title, description, progress, iduser
         );
     }
 }

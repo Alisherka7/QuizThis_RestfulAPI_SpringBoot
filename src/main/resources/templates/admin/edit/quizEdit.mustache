@@ -1,0 +1,47 @@
+{{>layout/header}}
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    {{>layout/sidebar}}
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Nested Row within Card Body -->
+            {{#quizDatas}}
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Edit Quiz!</h1>
+                        </div>
+                        <form class="user" action="/quizEdit" method="post">
+                            <input name="idquiz" type="hidden" value="{{idquiz}}">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="question"
+                                       name="question"
+                                       placeholder="Question" value="{{question}}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user"
+                                       name="answer"
+                                       id="answer" placeholder="Answer" value="{{answer}}">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                Save!
+                            </button>
+                            <hr>
+                            <input name="idquizset" type="hidden" value="{{idquizset}}">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {{/quizDatas}}
+
+        </div>
+    </div>
+
+{{>layout/footer}}
