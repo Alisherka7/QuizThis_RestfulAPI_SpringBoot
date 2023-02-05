@@ -1,5 +1,6 @@
 <div align="center">
   <img src="https://user-images.githubusercontent.com/38793933/198019682-dcb72b17-760d-41a8-9540-179e53fcda1d.png" alt="logo" width="300" height="auto" />
+  
   <h1>Make your notes and Learn it with QuizThis</h1>
   
 
@@ -13,6 +14,7 @@
     <a href="https://github.com/Alisherka7/QuizThis_RestfulAPI_SpringBoot/issues">Request Feature</a>
   </h4>
 </div>
+
 
 <!-- Table of Contents -->
 # :notebook_with_decorative_cover: Table of Contents
@@ -64,6 +66,7 @@
     <li><a href="https://mustache.github.io/">Mustache</a></li>
   </ul>
 </details>
+
 
 <details>
   <summary>Server</summary>
